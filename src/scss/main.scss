@@ -26,8 +26,7 @@
 
 html {
     height: 100%;
-    background: #030303 url('../../img/pattern.jpg');
-
+    background: #030303 url('../images/pattern.jpg');
 }
 
 body{
@@ -45,6 +44,32 @@ body{
 a{
 
 }
+
+.header__title{
+  font-family: exo2-thin;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 23px;
+  line-height: normal;
+  color: #fff;
+}
+
+.wrapper{
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+}
+
+.wrapper__container{
+  width: 1120px;
+  margin: 0 auto;
+}
+
+.products{
+  display: flex;
+  justify-content: space-between;
+}
+
 .product__item{
     width: 320px;
 }
@@ -60,7 +85,7 @@ a{
   border-radius: 0 0 10px 10px;
   background-color: #f2f2f2;
   padding-left: 44px;
-  height: 433px;
+  height: 432px;
   position: relative;
 }
 .product__header{
@@ -76,33 +101,33 @@ a{
   padding-top: 17px;
   padding-left: 4px;
   position: relative;
-}
-.product__header:before{
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: -40px;
-  border: 20px solid transparent;
-  border-right: 20px solid #f2f2f2;
-  border-bottom: 20px solid #f2f2f2;
-}
-.product__header:after{
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: -23px;
-  height: 65px;
-  width: 4px;
-  background-color: #1698d9;
-  transform: rotate(45deg);
+  &:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -40px;
+    border: 20px solid transparent;
+    border-right: 20px solid #f2f2f2;
+    border-bottom: 20px solid #f2f2f2;
+  }
+  &:after{
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: -23px;
+    height: 65px;
+    width: 4px;
+    background-color: #1698d9;
+    transform: rotate(45deg);
+  }
 }
 
-.promo {
+.header__promo {
   color: #666666;
   font-size: 16px;
 }
-.promo--shover{
+.header__promo--shover{
   display: none;
 }
 
@@ -120,6 +145,7 @@ a{
   font-weight: bold;
   display: block;
   line-height: 1;
+  margin-bottom: 17px;
 }
 
 .product__desc{
