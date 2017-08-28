@@ -115,11 +115,12 @@ a{
     content: "";
     position: absolute;
     top: -12px;
-    left: -23px;
-    height: 65px;
+    left: -22px;
+    height: 62px;
     width: 4px;
     background-color: #1698d9;
     transform: rotate(45deg);
+    z-index: 1;
   }
 }
 
@@ -145,11 +146,12 @@ a{
   font-weight: bold;
   display: block;
   line-height: 1;
-  margin-bottom: 17px;
+  margin-bottom: 16px;
 }
 
 .product__desc{
   color: #666;
+  line-height: 1.18;
 }
 
 .product__footer{
@@ -177,5 +179,20 @@ a{
   margin-top: 13px;
 }
 
-
-
+.product__footer{
+  margin-top: 13px;
+}
+.footer-promo{
+  font-size: 13px;
+  line-height: 1.25;
+  &__default{
+    color: #fff;
+  }
+  &__selected{
+    display: none;
+  }
+  &__disabled{
+    color: #ffff66;
+    display: none;
+  }
+}
