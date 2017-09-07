@@ -1,0 +1,366 @@
+@import "./_variables.scss";
+@import "./_mixins.scss";
+
+
+/* titles */
+.header__title{
+  font-family: exo2-thin;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 23px;
+  line-height: normal;
+  color: #fff;
+}
+/* end titles */
+
+/* wrapper */
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+
+  &__container{
+    @media (min-width: 1020px) {
+      width: 1120px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1020px) {
+      width: 100%;
+      margin: 40px 0;
+    }
+
+  }
+}
+/* end wrapper */
+
+/* products */
+.products{
+  display: flex;
+
+  @media (min-width: 1020px) {
+    justify-content: space-between;
+  }
+
+  @media (max-width: 1020px) {
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0 10px;
+  }
+}
+
+.product{
+  @media (min-width: 361px) {
+    width: 320px;
+  }
+  @media (max-width: 360px) {
+    width: 100%;
+  }
+  @media (max-width: 1019px) {
+    margin-bottom: 30px;
+
+    @media (min-width: 640px) {
+      padding: 0 20px;
+    }
+  }
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &:hover{
+    cursor: pointer;
+    .product__header:after{
+      background-color: $color-hover;
+    }
+  }
+
+  &--selected:hover{
+    .product__header:after{
+      background-color: $color-shover;
+    }
+  }
+
+  &--disabled:hover{
+    cursor: default;
+  }
+
+  &__body{
+    display: block;
+    border: 4px solid #1698d9;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    background-color: #f2f2f2;
+    padding-left: 44px;
+    height: 432px;
+    position: relative;
+    overflow: hidden;
+
+    .product:hover &{
+      border-color: $color-hover;
+    }
+
+    .product--selected &{
+      border-color: $color-select;
+    }
+
+    .product--selected:hover &{
+      border-color: $color-shover;
+    }
+
+    .not-hover:hover & {
+      border-color: $color-select;
+    }
+
+    .product--disabled &{
+      border-color: $color-disabled !important;
+    }
+
+  }
+
+  &__header{
+    height: 44px;
+    display: block;
+    margin-left: 44px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    border: 4px solid #1698d9;
+    border-left: 0;
+    border-bottom: 0;
+    border-radius: 0 10px 0 0;
+    padding-top: 17px;
+    padding-left: 4px;
+    position: relative;
+
+    .product:hover &{
+      border-color: $color-hover;
+    }
+
+    .product--selected &{
+      border-color: $color-select;
+    }
+
+    .product--selected:hover &{
+      border-color: $color-shover;
+    }
+
+    .not-hover:hover &{
+      border-color: $color-select;
+    }
+
+    .product--disabled &{
+      border-color: $color-disabled !important;
+    }
+
+    &:before{
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -40px;
+      border: 20px solid transparent;
+      border-right: 20px solid #f2f2f2;
+      border-bottom: 20px solid #f2f2f2;
+    }
+
+    &:after{
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: -22px;
+      height: 62px;
+      width: 4px;
+      background-color: #1698d9;
+      transform: rotate(45deg);
+      z-index: 1;
+
+      .product--selected &{
+        background-color: $color-select;
+      }
+
+      .product--selected:hover &{
+        border-color: $color-shover;
+      }
+
+      .not-hover:hover &{
+        background-color: $color-select;
+      }
+
+      .product--disabled &{
+        background-color: $color-disabled !important;
+      }
+    }
+  }
+
+  &__name{
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.22;
+    color: #000;
+    display: block;
+
+    .product--disabled &{
+      color: $color-disabled;
+    }
+  }
+
+  &__filling{
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+    margin-bottom: 16px;
+
+    .product--disabled &{
+      color: $color-disabled;
+    }
+  }
+
+  &__desc{
+    color: #666;
+    line-height: 1.18;
+
+    .product--disabled &{
+      color: $color-disabled;
+    }
+  }
+
+  &__image{
+    position: absolute;
+    bottom: -4px;
+    left: -4px;
+
+    .product--disabled &{
+      opacity: .5;
+    }
+  }
+
+  &__footer{
+    text-align: center;
+  }
+
+  &__weight{
+    font-size: 42px;
+    text-align: center;
+    color: #fff;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #1698d9;
+    position: absolute;
+    bottom: 11px;
+    right: 11px;
+    line-height: 0.52;
+    box-sizing: border-box;
+    padding-top: 20px;
+
+    .product:hover &{
+      background-color: $color-hover;
+    }
+
+    .product--selected &{
+      background-color: $color-select;
+    }
+
+    .product--selected:hover &{
+      background-color: $color-shover;
+    }
+
+    .not-hover:hover & {
+      background-color: $color-select;
+    }
+
+    .product--disabled &{
+      background-color: $color-disabled !important;
+    }
+
+  }
+
+  &__kg{
+    display: block;
+    font-size: 21px;
+    margin-top: 13px;
+  }
+
+  &__footer{
+    margin-top: 13px;
+  }
+
+}
+/* end products */
+
+
+.header-promo {
+  color: #666666;
+  font-size: 16px;
+
+  &--default{
+    .product--selected:hover &{
+      display: none;
+    }
+    .not-hover:hover &{
+      display: block;
+    }
+  }
+
+  &--shover{
+    display: none;
+    color: $color-shover;
+
+    .product--selected:hover &{
+      display: block;
+    }
+
+    .not-hover:hover &{
+      display: none;
+    }
+  }
+
+  .product--disabled &{
+    color: $color-disabled;
+  }
+}
+
+.footer-promo{
+  font-size: 13px;
+  line-height: 1.25;
+  color: #fff;
+  &__default{
+    color: #fff;
+    .product--selected &{
+      display: none;
+    }
+    .product--disabled &{
+      display: none;
+    }
+  }
+  &__selected{
+    display: none;
+    .product--selected &{
+      display: block;
+    }
+  }
+  &__disabled{
+    color: #ffff66;
+    display: none;
+    .product--disabled &{
+      display: block;
+    }
+  }
+}
+
+.link{
+  &__text{
+    border-bottom: 1px dashed #1698d9;
+    .product:hover &{
+      color: $color-hover;
+      border-color: $color-hover;
+    }
+  }
+}

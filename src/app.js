@@ -1,3 +1,3 @@
 import './js/main.js';
 
-import './scss/common.scss'
+import './scss/common.scss';

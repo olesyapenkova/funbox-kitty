@@ -1,4 +1,6 @@
-@import url('typography.scss');
-@import url('main.scss');
-@import url('helpers.scss');
-@import url('print.scss');
+@import './base.scss';
+@import './typography.scss';
+@import './layout.scss';
+@import './helpers.scss';
+@import './print.scss';
+

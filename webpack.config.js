@@ -1,4 +1,5 @@
 const path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
@@ -9,15 +10,12 @@ module.exports = {
     },
     module: {
         rules: [
+
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
-                    use: [{
-                        loader: "css-loader"
-                    }, {
-                        loader: "sass-loader"
-                    }],
-                    fallback: 'style-loader'
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
                 })
             },
             {
@@ -45,6 +43,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('style.css')
+        new ExtractTextPlugin('style.css'),
+        new CopyWebpackPlugin([
+            // { from:'./assets/video/exchange-howto-video.mp4', to: './video/exchange-howto-video.mp4' },
+            { from:'./src/js/vendor/jquery-1.12.0.min.js', to: './dist/js/vendor/jquery-1.12.0.min.js' },
+        ])
+
     ]
 }
