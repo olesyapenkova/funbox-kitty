@@ -45,8 +45,10 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('style.css'),
         new CopyWebpackPlugin([
-            // { from:'./assets/video/exchange-howto-video.mp4', to: './video/exchange-howto-video.mp4' },
-            { from:'./src/js/vendor/jquery-1.12.0.min.js', to: './dist/js/vendor/jquery-1.12.0.min.js' },
+            {
+                from:'./src/js/vendor/jquery-1.12.0.min.js',
+                to: './js/vendor/jquery-1.12.0.min.js'
+            }
         ])
 
     ]

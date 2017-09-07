@@ -4,7 +4,7 @@
 
 /* titles */
 .header__title{
-  font-family: exo2-thin;
+  font-family: 'exo2-thin';
   text-align: center;
   font-size: 36px;
   margin-bottom: 23px;
@@ -15,9 +15,9 @@
 
 /* wrapper */
 .wrapper{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex;
+  @include align-items(center);
+  @include justify-content(center);
   min-height: 100%;
 
   &__container{
@@ -37,15 +37,15 @@
 
 /* products */
 .products{
-  display: flex;
+  @include flex;
 
   @media (min-width: 1020px) {
-    justify-content: space-between;
+    @include justify-content(space-between);
   }
 
   @media (max-width: 1020px) {
-    justify-content: space-around;
-    flex-wrap: wrap;
+    @include justify-content(space-around);
+    @include flex-wrap(wrap);
   }
 
   @media (max-width: 360px) {
