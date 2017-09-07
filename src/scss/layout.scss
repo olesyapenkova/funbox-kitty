@@ -74,10 +74,15 @@
   -ms-user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-  &:hover{
-    cursor: pointer;
-    .product__header:after{
-      background-color: $color-hover;
+  &__wrapper{
+    &:hover{
+      cursor: pointer;
+      .product__header:after{
+        background-color: $color-hover;
+      }
+      .product--disabled &{
+        cursor: default;
+      }
     }
   }
 
@@ -87,9 +92,7 @@
     }
   }
 
-  &--disabled:hover{
-    cursor: default;
-  }
+
 
   &__body{
     display: block;
@@ -102,7 +105,7 @@
     position: relative;
     overflow: hidden;
 
-    .product:hover &{
+    .product__wrapper:hover &{
       border-color: $color-hover;
     }
 
@@ -138,7 +141,7 @@
     padding-left: 4px;
     position: relative;
 
-    .product:hover &{
+    .product__wrapper:hover &{
       border-color: $color-hover;
     }
 
@@ -261,7 +264,7 @@
     box-sizing: border-box;
     padding-top: 20px;
 
-    .product:hover &{
+    .product__wrapper:hover &{
       background-color: $color-hover;
     }
 
