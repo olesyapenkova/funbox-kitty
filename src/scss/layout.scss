@@ -54,6 +54,7 @@
 }
 
 .product{
+  overflow: hidden;
   @media (min-width: 361px) {
     width: 320px;
   }
@@ -171,9 +172,9 @@
     &:after{
       content: "";
       position: absolute;
-      top: -12px;
-      left: -22px;
-      height: 62px;
+      top: -13px;
+      left: -23px;
+      height: 63px;
       width: 4px;
       background-color: #1698d9;
       transform: rotate(45deg);
