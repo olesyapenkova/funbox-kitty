@@ -5,8 +5,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: './src/app.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'public'),
+        filename: 'js/bundle.js'
     },
     module: {
         rules: [
@@ -15,7 +15,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
+                    use: ['css-loader?url=false', 'sass-loader']
                 })
             },
             {
@@ -24,7 +24,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options:{
-                            name: 'images/[name].[ext]'
+                          name: 'images/[name].[ext]'
                         }
                     }
                 ]
@@ -35,7 +35,7 @@ module.exports = {
                  {
                      loader: 'file-loader',
                      options:{
-                         name: 'fonts/[name].[ext]'
+                       name: 'fonts/[name].[ext]'
                      }
                  }
              ]
@@ -43,7 +43,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('style.css'),
+        new ExtractTextPlugin('css/style.css'),
         new CopyWebpackPlugin([
             {
                 from:'./src/js/vendor/jquery-1.12.0.min.js',
