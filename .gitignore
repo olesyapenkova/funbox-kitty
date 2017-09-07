@@ -3,8 +3,6 @@
 /public/fonts
 /public/images
 
-Gemfile.lock
-
 /node_modules
 /.idea
 *.iml
